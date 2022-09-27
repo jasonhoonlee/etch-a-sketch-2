@@ -43,5 +43,8 @@ main .container {
 
 main .grid-tools {
   font-size: 2em;
+}
 
+.grid-tools ul {
+  list-style: none;
 }
