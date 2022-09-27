@@ -40,3 +40,8 @@ main .container {
   height: 50vh;
   width: 50vh;
 }
+
+main .grid-tools {
+  font-size: 2em;
+
+}
