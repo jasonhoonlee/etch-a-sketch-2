@@ -30,3 +30,9 @@ header h1 {
 main {
   height: 60vh;
 }
+
+main .container {
+  background-color: white;
+  height: 50vh;
+  width: 50vh;
+}
