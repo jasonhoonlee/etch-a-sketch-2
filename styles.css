@@ -24,3 +24,9 @@ header {
 header h1 {
   font-size: 100px;
 }
+
+/* MAIN */
+
+main {
+  height: 60%;
+}
