@@ -20,3 +20,7 @@ header {
   font-size: 60px;
   gap: 30px;
 }
+
+header h1 {
+  margin: 0;
+}
