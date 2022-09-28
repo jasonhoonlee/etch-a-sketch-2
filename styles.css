@@ -75,3 +75,8 @@ footer p {
   gap: 10px;
   font-size: 1.5em;
 }
+
+footer img {
+  background-color: palevioletred;
+  border-radius: 50%;
+}
