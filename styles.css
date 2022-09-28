@@ -65,3 +65,13 @@ form fieldset {
   color: lime;
   border: solid 1px lime
 }
+
+/* FOOTER */
+
+footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5em;
+}
