@@ -48,3 +48,7 @@ main .grid-tools {
 .grid-tools li {
   list-style: none;
 }
+
+form fieldset {
+  border: none;
+}
