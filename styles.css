@@ -55,7 +55,7 @@ form fieldset {
 
 .reset-btn {
   background-color: navy;
-  border: none;
+  border: solid 1px navy;
   font-family: 'VT323', monospace;
   font-size: 1em;
   color: palevioletred;
