@@ -60,3 +60,8 @@ form fieldset {
   font-size: 1em;
   color: palevioletred;
 }
+
+.reset-btn:hover {
+  color: lime;
+  border: solid 1px lime
+}
