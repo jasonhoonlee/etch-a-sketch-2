@@ -52,3 +52,11 @@ main .grid-tools {
 form fieldset {
   border: none;
 }
+
+.reset-btn {
+  background-color: navy;
+  border: none;
+  font-family: 'VT323', monospace;
+  font-size: 1em;
+  color: palevioletred;
+}
