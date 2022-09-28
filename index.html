@@ -17,43 +17,45 @@
   </header>
   <main>
     <section class="grid-tools">
-      <ul class="grid-options">
-        <li>
-          <label for="square-size-slider">Grid Square Size</label>
-          <input type="range" min="1" max="64" value ="32" class="slider" id="square-size-slider">
-        </li>
-        <li>
-          <label for="grid-color-range">Grid Background Color</label>
-          <input type="color" value="#FFFFFF" class="color-range" id="grid-color-range">
-        </li>
-      </ul>
-      <ul class="line-options">
-        <li>
-          <label for="grid-line-color-range">Grid Line Color</label>
-          <input type="color" value="#D3D3D3" class="color-range" id="grid-line-color-range">
-        </li>
-        <li>
-          <label for="gridless-option">Gridless Mode</label>
-          <input type="checkbox" id="gridless-option" name="gridless-option">
-        </li>
-      </ul>
-      <ul class="pen-options">
-        <li>
-          <label for="pen-color-range">Pen Color</label>
-          <input type="color" value="#000000" class="color-range" id="pen-color-range">
-        </li>
-        <li>
-          <label for="rainbow-mode">Rainbow Mode</label>
-          <input type="checkbox" id="rainbow-mode" name="rainbow-mode">
-        </li>
-        <li>
-          <label for="">Eraser Mode</label>
-          <input type="checkbox" id="eraser-mode" name="eraser-mode">
-        </li>
-      </ul>
-      <ul class="reset-mode">
-        <li>Reset</li>
-      </ul>
+      <form>
+        <fieldset class="grid-options">
+          <li>
+            <label for="square-size-slider">Grid Square Size</label>
+            <input type="range" min="1" max="64" value ="32" class="slider" id="square-size-slider">
+          </li>
+          <li>
+            <label for="grid-color-range">Grid Background Color</label>
+            <input type="color" value="#FFFFFF" class="color-range" id="grid-color-range">
+          </li>
+        </fieldset>
+        <fieldset class="line-options">
+          <li>
+            <label for="grid-line-color-range">Grid Line Color</label>
+            <input type="color" value="#D3D3D3" class="color-range" id="grid-line-color-range">
+          </li>
+          <li>
+            <label for="gridless-option">Gridless Mode</label>
+            <input type="checkbox" id="gridless-option" name="gridless-option">
+          </li>
+        </fieldset>
+        <fieldset class="pen-options">
+          <li>
+            <label for="pen-color-range">Pen Color</label>
+            <input type="color" value="#000000" class="color-range" id="pen-color-range">
+          </li>
+          <li>
+            <label for="rainbow-mode">Rainbow Mode</label>
+            <input type="checkbox" id="rainbow-mode" name="rainbow-mode">
+          </li>
+          <li>
+            <label for="">Eraser Mode</label>
+            <input type="checkbox" id="eraser-mode" name="eraser-mode">
+          </li>
+        </fieldset>
+        <fieldset class="reset-option">
+          <li>Reset</li>
+        </fieldset>
+      </form>
     </section>
     <section class="grid-canvas">
       <div class="container">
