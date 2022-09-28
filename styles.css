@@ -85,3 +85,7 @@ footer a {
   text-decoration: none;
   color: palevioletred;
 }
+
+footer a:hover {
+  color: lime;
+}
