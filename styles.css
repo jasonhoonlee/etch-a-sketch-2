@@ -80,3 +80,8 @@ footer img {
   background-color: palevioletred;
   border-radius: 50%;
 }
+
+footer a {
+  text-decoration: none;
+  color: palevioletred;
+}
