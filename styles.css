@@ -45,6 +45,6 @@ main .grid-tools {
   font-size: 2em;
 }
 
-.grid-tools ul {
+.grid-tools li {
   list-style: none;
 }
