@@ -66,6 +66,22 @@ form fieldset {
   border: solid 1px lime
 }
 
+/* GRID */
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .row {
+  display: flex;
+  flex: 1;
+}
+
+.container .cell {
+  flex: 1;
+}
+
 /* FOOTER */
 
 footer p {
