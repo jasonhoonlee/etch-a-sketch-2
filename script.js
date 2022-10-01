@@ -36,13 +36,12 @@ function createRow(gridSize) {
   return row;
 }
 
-
 function createRowCells(gridSize) {
   let cell = document.createElement('div');
-  cell = defineCellBorderColor(cell);
-  cell = defineCellBackgroundColor(cell);
-  cell = addClassNameToCell(cell);
-  return cell
+  defineCellBorderColor(cell);
+  defineCellBackgroundColor(cell);
+  addClassNameToCell(cell);
+  return cell;
 }
 
 function defineCellBorderColor(cell) {
@@ -52,17 +51,14 @@ function defineCellBorderColor(cell) {
   gridContainer.style.borderLeft = borderDetails;
   cell.style.borderBottom = borderDetails;
   cell.style.borderRight = borderDetails;
-  return cell;
 }
 
 function defineCellBackgroundColor(cell) {
   cell.style.backgroundColor = grid.gridBackgroundColor;
-  return cell;
 }
 
 function addClassNameToCell(cell) {
   cell.classList.add('cell');
-  return cell;
 }
 
 
