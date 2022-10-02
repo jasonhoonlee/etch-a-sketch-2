@@ -70,7 +70,7 @@ function colorCell(e) {
   if (e.buttons === 1) {
     const drawnCell = e.target;
     drawnCell.style.backgroundColor = grid.penColor;
-    drawnCell.style.border = grid.penColor;
+    drawnCell.style.borderColor = grid.penColor;
   }
 }
 
