@@ -14,7 +14,7 @@ const grid = {
 
 
 
-// CREATE GRID
+
 function createGrid(gridSize) {
   const gridContainer = document.querySelector('.container');
   for (let i = 0; i < gridSize; i++) {
@@ -24,7 +24,6 @@ function createGrid(gridSize) {
 }
 
 function createRow(gridSize) {
-  //create cells for each row
   const row = document.createElement('div');
   row.classList.add('row');
   for (let i = 0; i < gridSize; i++) {
