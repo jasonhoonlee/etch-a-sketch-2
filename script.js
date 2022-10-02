@@ -18,9 +18,7 @@ const grid = {
 function createGrid(gridSize) {
   const gridContainer = document.querySelector('.container');
   for (let i = 0; i < gridSize; i++) {
-    //create row html
     const gridRowHTML = createRow(gridSize);
-    //add complete grid row to html
     gridContainer.append(gridRowHTML);
   }
 }
@@ -41,6 +39,7 @@ function createRowCells(gridSize) {
   defineCellBorderColor(cell);
   defineCellBackgroundColor(cell);
   addClassNameToCell(cell);
+  makeCellDrawable(cell);
   return cell;
 }
 
@@ -59,6 +58,19 @@ function defineCellBackgroundColor(cell) {
 
 function addClassNameToCell(cell) {
   cell.classList.add('cell');
+}
+
+
+function makeCellDrawable(cell) {
+  cell.addEventListener('mouseover', colorCell);
+}
+
+function colorCell(e) {
+  if (e.buttons === 1) {
+    const drawnCell = e.target;
+    drawnCell.style.backgroundColor = grid.penColor;
+    drawnCell.style.border = grid.penColor;
+  }
 }
 
 
