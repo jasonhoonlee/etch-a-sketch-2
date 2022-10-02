@@ -62,6 +62,7 @@ function addClassNameToCell(cell) {
 
 
 function makeCellDrawable(cell) {
+  cell.addEventListener('mousedown', colorCell);
   cell.addEventListener('mouseover', colorCell);
 }
 
