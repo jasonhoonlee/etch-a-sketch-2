@@ -82,7 +82,7 @@ function updateGridSquareSize(e) {
 
 function updateGridSquareSizeUI(sliderValue) {
   const gridSquareSizeTool = document.querySelector('.grid-size-number');
-  gridSquareSizeTool.textContent = `${sliderValue}`;
+  gridSquareSizeTool.textContent = `${sliderValue} ${'x'} ${sliderValue}`;
 }
 
 
