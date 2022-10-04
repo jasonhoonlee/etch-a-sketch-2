@@ -49,6 +49,15 @@ main .grid-tools {
   list-style: none;
 }
 
+.grid-square-size-tool {
+  display: flex;
+  gap: 3vh;
+}
+
+.grid-size-number {
+  color: lime;
+}
+
 form fieldset {
   border: none;
 }
