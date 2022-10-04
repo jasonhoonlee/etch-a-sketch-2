@@ -110,8 +110,14 @@ function toggleGridlessMode(e) {
     createGrid(grid.gridSquareSize);
     grid.gridlessMode = false;
   }
+  displayGridlessModeState()
 }
 
+function displayGridlessModeState() {
+  const gridlessModeState = document.querySelector('.gridless-mode-state');
+  if (grid.gridlessMode) gridlessModeState.textContent = 'on';
+  else gridlessModeState.textContent = '';
+}
 
 
 (function() {

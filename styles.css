@@ -58,6 +58,15 @@ main .grid-tools {
   color: lime;
 }
 
+.gridless-mode-tool {
+  display: flex;
+  gap: 2vh;
+}
+
+.gridless-mode-state {
+  color: lime;
+}
+
 form fieldset {
   border: none;
 }
