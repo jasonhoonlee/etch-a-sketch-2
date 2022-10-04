@@ -85,11 +85,20 @@ function updateGridSquareSizeUI(sliderValue) {
   gridSquareSizeTool.textContent = `${sliderValue} ${'x'} ${sliderValue}`;
 }
 
+function updateGridBackgroundColor(e) {
+  const backgroundColorValue = e.target.value;
+  grid.gridBackgroundColor = backgroundColorValue;
+  createGrid(grid.gridSquareSize);
+}
+
 
 (function() {
 
   const gridSquareSizeSlider = document.querySelector('.slider');
+  const gridBackgroundColorPicker = document.querySelector('#grid-color-range');
+
   gridSquareSizeSlider.addEventListener('click', updateGridSquareSize);
+  gridBackgroundColorPicker.addEventListener('input', updateGridBackgroundColor);
 
   createGrid(grid.gridSquareSize)
 
