@@ -91,14 +91,23 @@ function updateGridBackgroundColor(e) {
   createGrid(grid.gridSquareSize);
 }
 
+function updateGridLineColor(e) {
+  const gridLineColorValue = e.target.value;
+  grid.gridLineColor = gridLineColorValue;
+  createGrid(grid.gridSquareSize);
+}
+
 
 (function() {
 
   const gridSquareSizeSlider = document.querySelector('.slider');
   const gridBackgroundColorPicker = document.querySelector('#grid-color-range');
+  const gridLineColorPicker = document.querySelector('#grid-line-color-range');
+
 
   gridSquareSizeSlider.addEventListener('click', updateGridSquareSize);
   gridBackgroundColorPicker.addEventListener('input', updateGridBackgroundColor);
+  gridLineColorPicker.addEventListener('input', updateGridLineColor);
 
   createGrid(grid.gridSquareSize)
 
