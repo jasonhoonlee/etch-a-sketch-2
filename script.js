@@ -15,10 +15,11 @@ const grid = {
 
 
 
-function createGrid(gridSize) {
+function createGrid(gridSquareSize) {
   const gridContainer = document.querySelector('.container');
-  for (let i = 0; i < gridSize; i++) {
-    const gridRowHTML = createRow(gridSize);
+  gridContainer.innerHTML = '';
+  for (let i = 0; i < gridSquareSize; i++) {
+    const gridRowHTML = createRow(gridSquareSize);
     gridContainer.append(gridRowHTML);
   }
 }
@@ -73,5 +74,27 @@ function colorCell(e) {
   }
 }
 
+function updateGridSquareSize(e) {
+  const sliderValue = e.target.value;
+  createGrid(sliderValue);
+  updateGridSquareSizeUI(sliderValue)
+}
 
-createGrid(32)
+function updateGridSquareSizeUI(sliderValue) {
+  const gridSquareSizeTool = document.querySelector('.grid-size-number');
+  gridSquareSizeTool.textContent = `${sliderValue}`;
+}
+
+
+(function() {
+
+  const gridSquareSizeSlider = document.querySelector('.slider');
+  gridSquareSizeSlider.addEventListener('click', updateGridSquareSize);
+
+  createGrid(grid.gridSquareSize)
+
+})();
+
+
+
+
