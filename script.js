@@ -3,6 +3,7 @@ const grid = {
   gridSquareSize: 32,
   gridBackgroundColor: '#FFFFFF',
   gridLineColor: '#5A5A5A',
+  gridPreviousLineColor: null,
   gridlessMode: false,
   penColor: '#000000',
   rainbowMode: false,
@@ -98,16 +99,33 @@ function updateGridLineColor(e) {
 }
 
 
+function toggleGridlessMode(e) {
+  if (!grid.gridlessMode) {
+    grid.gridPreviousLineColor = grid.gridLineColor;
+    grid.gridLineColor = grid.gridBackgroundColor;
+    createGrid(grid.gridSquareSize);
+    grid.gridlessMode = true;
+  } else {
+    grid.gridLineColor = grid.gridPreviousLineColor;
+    createGrid(grid.gridSquareSize);
+    grid.gridlessMode = false;
+  }
+}
+
+
+
 (function() {
 
   const gridSquareSizeSlider = document.querySelector('.slider');
   const gridBackgroundColorPicker = document.querySelector('#grid-color-range');
   const gridLineColorPicker = document.querySelector('#grid-line-color-range');
+  const gridlessMode = document.querySelector('#gridless-option');
 
 
   gridSquareSizeSlider.addEventListener('click', updateGridSquareSize);
   gridBackgroundColorPicker.addEventListener('input', updateGridBackgroundColor);
   gridLineColorPicker.addEventListener('input', updateGridLineColor);
+  gridlessMode.addEventListener('click', toggleGridlessMode);
 
   createGrid(grid.gridSquareSize)
 
