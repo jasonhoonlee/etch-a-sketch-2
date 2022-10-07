@@ -119,6 +119,11 @@ function displayGridlessModeState() {
   else gridlessModeState.textContent = '';
 }
 
+function updatePenColor(e) {
+  const colorPickerValue = e.target.value;
+  grid.penColor = colorPickerValue;
+}
+
 
 (function() {
 
@@ -126,14 +131,15 @@ function displayGridlessModeState() {
   const gridBackgroundColorPicker = document.querySelector('#grid-color-range');
   const gridLineColorPicker = document.querySelector('#grid-line-color-range');
   const gridlessMode = document.querySelector('#gridless-option');
-
+  const penColorPicker = document.querySelector('#pen-color-range');
 
   gridSquareSizeSlider.addEventListener('click', updateGridSquareSize);
   gridBackgroundColorPicker.addEventListener('input', updateGridBackgroundColor);
   gridLineColorPicker.addEventListener('input', updateGridLineColor);
   gridlessMode.addEventListener('click', toggleGridlessMode);
+  penColorPicker.addEventListener('input', updatePenColor);
 
-  createGrid(grid.gridSquareSize)
+  createGrid(grid.gridSquareSize);
 
 })();
 
