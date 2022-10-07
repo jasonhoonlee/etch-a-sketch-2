@@ -69,18 +69,37 @@ function makeCellDrawable(cell) {
 
 function colorCell(e) {
   if (e.buttons === 1) {
-    const drawnCell = e.target;
-    if (grid.rainbowMode) {
+    const cell = e.target;
+
+    if (grid.eraserMode) {
+      eraseCell(cell)
+    } else if (grid.rainbowMode) {
       const randomColor = generateRandomColor();
-      console.log(randomColor)
-      drawnCell.style.backgroundColor = randomColor;
-      drawnCell.style.borderColor = randomColor;
+      cell.style.backgroundColor = randomColor;
+      cell.style.borderColor = randomColor;
+      cell.classList.add('drawn');
     } else {
-      drawnCell.style.backgroundColor = grid.penColor;
-      drawnCell.style.borderColor = grid.penColor;
+      cell.style.backgroundColor = grid.penColor;
+      cell.style.borderColor = grid.penColor;
+      cell.classList.add('drawn');
     }
-    drawnCell.classList.add('drawn');
+
   }
+}
+
+function eraseCell(cell) {
+  cell.style.backgroundColor = grid.gridBackgroundColor;
+
+  if (grid.gridlessMode) {
+    cell.style.borderColor = grid.gridBackgroundColor;
+  } else {
+    cell.style.borderColor = grid.gridLineColor;
+  }
+  unmarkCell(cell);
+}
+
+function unmarkCell(cell) {
+  cell.classList.remove('drawn');
 }
 
 function generateRandomColor() {
@@ -155,16 +174,25 @@ function updatePenColor(e) {
 
 
 function activateRainbowMode() {
-  //run rainbow mode on/off
   grid.rainbowMode = !grid.rainbowMode;
-  //display rainbow mode state
   displayRainbowModeState();
 }
 
 function displayRainbowModeState() {
   const rainbowModeState = document.querySelector('.rainbow-mode-state');
-  if (grid.rainbowMode) rainbowModeState.textContent = 'on'
+  if (grid.rainbowMode) rainbowModeState.textContent = 'on';
   else rainbowModeState.textContent = '';
+}
+
+function activateEraserMode() {
+  grid.eraserMode = !grid.eraserMode;
+  displayEraserModeState();
+}
+
+function displayEraserModeState() {
+  const eraserModeState = document.querySelector('.eraser-mode-state');
+  if (grid.eraserMode) eraserModeState.textContent = 'on';
+  else eraserModeState.textContent = '';
 }
 
 
@@ -176,6 +204,7 @@ function displayRainbowModeState() {
   const gridlessModeCheckbox = document.querySelector('#gridless-option');
   const penColorPicker = document.querySelector('#pen-color-range');
   const rainbowModeCheckbox = document.querySelector('#rainbow-mode');
+  const eraserModeCheckbox = document.querySelector('#eraser-mode');
 
   gridSquareSizeSlider.addEventListener('click', updateGridSquareSize);
   gridBackgroundColorPicker.addEventListener('input', updateGridBackgroundColor);
@@ -183,6 +212,7 @@ function displayRainbowModeState() {
   gridlessModeCheckbox.addEventListener('click', toggleGridlessMode);
   penColorPicker.addEventListener('input', updatePenColor);
   rainbowModeCheckbox.addEventListener('input', activateRainbowMode);
+  eraserModeCheckbox.addEventListener('input', activateEraserMode);
 
   createGrid(grid.gridSquareSize);
 
