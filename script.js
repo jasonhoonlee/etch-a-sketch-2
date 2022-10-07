@@ -90,7 +90,7 @@ function updateGridSquareSizeUI(sliderValue) {
 function updateGridBackgroundColor(e) {
   const backgroundColorValue = e.target.value;
   grid.gridBackgroundColor = backgroundColorValue;
-  createGrid(grid.gridSquareSize);
+  updateBlankCells();
 }
 
 function updateGridLineColor(e) {
