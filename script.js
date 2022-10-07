@@ -72,6 +72,7 @@ function colorCell(e) {
     const drawnCell = e.target;
     drawnCell.style.backgroundColor = grid.penColor;
     drawnCell.style.borderColor = grid.penColor;
+    drawnCell.classList.add('drawn');
   }
 }
 
@@ -98,16 +99,27 @@ function updateGridLineColor(e) {
   createGrid(grid.gridSquareSize);
 }
 
+function updateBlankCells() {
+  const gridCells = Array.from(document.querySelectorAll('.cell'));
+
+  gridCells.forEach(cell => {
+    if (!cell.classList.contains('drawn')){
+      cell.style.backgroundColor = grid.gridBackgroundColor;
+      cell.style.borderColor = grid.gridLineColor
+    }
+  })
+}
+
 
 function toggleGridlessMode(e) {
   if (!grid.gridlessMode) {
     grid.gridPreviousLineColor = grid.gridLineColor;
     grid.gridLineColor = grid.gridBackgroundColor;
-    createGrid(grid.gridSquareSize);
+    updateBlankCells()
     grid.gridlessMode = true;
   } else {
     grid.gridLineColor = grid.gridPreviousLineColor;
-    createGrid(grid.gridSquareSize);
+    updateBlankCells()
     grid.gridlessMode = false;
   }
   displayGridlessModeState()
