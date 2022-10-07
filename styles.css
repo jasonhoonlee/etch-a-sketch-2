@@ -85,6 +85,10 @@ main .grid-tools {
   color: lime;
 }
 
+.disabled-message {
+  color: red;
+}
+
 form fieldset {
   border: none;
 }
