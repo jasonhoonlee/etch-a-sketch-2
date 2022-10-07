@@ -70,10 +70,27 @@ function makeCellDrawable(cell) {
 function colorCell(e) {
   if (e.buttons === 1) {
     const drawnCell = e.target;
-    drawnCell.style.backgroundColor = grid.penColor;
-    drawnCell.style.borderColor = grid.penColor;
+    if (grid.rainbowMode) {
+      const randomColor = generateRandomColor();
+      console.log(randomColor)
+      drawnCell.style.backgroundColor = randomColor;
+      drawnCell.style.borderColor = randomColor;
+    } else {
+      drawnCell.style.backgroundColor = grid.penColor;
+      drawnCell.style.borderColor = grid.penColor;
+    }
     drawnCell.classList.add('drawn');
   }
+}
+
+function generateRandomColor() {
+  const digits = ['1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+  let randomHexCode = '#';
+  while (randomHexCode.length < 7) {
+    const randomIndex = Math.floor(Math.random() * digits.length);
+    randomHexCode += digits[randomIndex];
+  }
+  return randomHexCode;
 }
 
 function updateGridSquareSize(e) {
@@ -137,19 +154,35 @@ function updatePenColor(e) {
 }
 
 
+function activateRainbowMode() {
+  //run rainbow mode on/off
+  grid.rainbowMode = !grid.rainbowMode;
+  //display rainbow mode state
+  displayRainbowModeState();
+}
+
+function displayRainbowModeState() {
+  const rainbowModeState = document.querySelector('.rainbow-mode-state');
+  if (grid.rainbowMode) rainbowModeState.textContent = 'on'
+  else rainbowModeState.textContent = '';
+}
+
+
 (function() {
 
   const gridSquareSizeSlider = document.querySelector('.slider');
   const gridBackgroundColorPicker = document.querySelector('#grid-color-range');
   const gridLineColorPicker = document.querySelector('#grid-line-color-range');
-  const gridlessMode = document.querySelector('#gridless-option');
+  const gridlessModeCheckbox = document.querySelector('#gridless-option');
   const penColorPicker = document.querySelector('#pen-color-range');
+  const rainbowModeCheckbox = document.querySelector('#rainbow-mode');
 
   gridSquareSizeSlider.addEventListener('click', updateGridSquareSize);
   gridBackgroundColorPicker.addEventListener('input', updateGridBackgroundColor);
   gridLineColorPicker.addEventListener('input', updateGridLineColor);
-  gridlessMode.addEventListener('click', toggleGridlessMode);
+  gridlessModeCheckbox.addEventListener('click', toggleGridlessMode);
   penColorPicker.addEventListener('input', updatePenColor);
+  rainbowModeCheckbox.addEventListener('input', activateRainbowMode);
 
   createGrid(grid.gridSquareSize);
 
