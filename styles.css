@@ -76,6 +76,15 @@ main .grid-tools {
   color: lime;
 }
 
+.eraser-mode-tool {
+  display: flex;
+  gap: 2vh;
+}
+
+.eraser-mode-state {
+  color: lime;
+}
+
 form fieldset {
   border: none;
 }
