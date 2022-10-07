@@ -67,6 +67,15 @@ main .grid-tools {
   color: lime;
 }
 
+.rainbow-mode-tool {
+  display: flex;
+  gap: 2vh;
+}
+
+.rainbow-mode-state {
+  color: lime;
+}
+
 form fieldset {
   border: none;
 }
