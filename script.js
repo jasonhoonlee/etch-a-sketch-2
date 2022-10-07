@@ -96,7 +96,7 @@ function updateGridBackgroundColor(e) {
 function updateGridLineColor(e) {
   const gridLineColorValue = e.target.value;
   grid.gridLineColor = gridLineColorValue;
-  createGrid(grid.gridSquareSize);
+  updateBlankCells();
 }
 
 function updateBlankCells() {
