@@ -187,6 +187,7 @@ function displayRainbowModeState() {
 function activateEraserMode() {
   grid.eraserMode = !grid.eraserMode;
   displayEraserModeState();
+  toggleDisableAllGridTools();
 }
 
 function displayEraserModeState() {
@@ -194,6 +195,50 @@ function displayEraserModeState() {
   if (grid.eraserMode) eraserModeState.textContent = 'on';
   else eraserModeState.textContent = '';
 }
+
+function toggleDisableAllGridTools() {
+  toggleDisableGridSquareSizeTool();
+  toggleDisableAllGridColorTools();
+  toggleDisableGridlessModeTool();
+  toggleDisableRainbowModeTool();
+  displayDisabledMessage();
+}
+
+function displayDisabledMessage() {
+  const disabledMessage = document.querySelector('.disabled-message');
+  if (grid.eraserMode) {
+    disabledMessage.textContent = '(grid tools disabled)';
+  } else {
+    disabledMessage.textContent = '';
+  }
+}
+
+function toggleDisableGridSquareSizeTool() {
+  const gridSquareSizeSlider = document.querySelector('.slider');
+  if (grid.eraserMode) gridSquareSizeSlider.disabled = true;
+  else gridSquareSizeSlider.disabled = false;
+}
+
+function toggleDisableAllGridColorTools() {
+  const colorPickers = document.querySelectorAll('.color-range');
+  colorPickers.forEach(colorPicker => {
+    if (grid.eraserMode) colorPicker.disabled = true;
+    else colorPicker.disabled = false;
+  })
+}
+
+function toggleDisableGridlessModeTool() {
+  const gridlessModeCheckbox = document.getElementById('gridless-option');
+  if (grid.eraserMode) gridlessModeCheckbox.disabled = true;
+  else gridlessModeCheckbox.disabled = false;
+}
+
+function toggleDisableRainbowModeTool() {
+  const rainbowModeCheckbox = document.getElementById('rainbow-mode');
+  if (grid.eraserMode) rainbowModeCheckbox.disabled = true;
+  else rainbowModeCheckbox.disabled = false;
+}
+
 
 
 (function() {
