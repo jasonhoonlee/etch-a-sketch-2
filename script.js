@@ -1,6 +1,6 @@
 
 const grid = {
-  gridSquareSize: 32,
+  gridSquareSize: 48,
   gridBackgroundColor: '#FFFFFF',
   gridLineColor: '#5A5A5A',
   gridPreviousLineColor: null,
@@ -9,11 +9,6 @@ const grid = {
   rainbowMode: false,
   eraserMode: false
 }
-
-
-
-
-
 
 
 function createGrid(gridSquareSize) {
@@ -125,6 +120,9 @@ function updateGridSquareSizeUI(sliderValue) {
 
 function updateGridBackgroundColor(e) {
   const backgroundColorValue = e.target.value;
+  if (grid.gridlessMode) {
+    grid.gridLineColor = backgroundColorValue;
+  }
   grid.gridBackgroundColor = backgroundColorValue;
   updateBlankCells();
 }
@@ -240,6 +238,10 @@ function toggleDisableRainbowModeTool() {
 }
 
 
+function resetGrid() {
+  createGrid(48);
+}
+
 
 (function() {
 
@@ -250,6 +252,7 @@ function toggleDisableRainbowModeTool() {
   const penColorPicker = document.querySelector('#pen-color-range');
   const rainbowModeCheckbox = document.querySelector('#rainbow-mode');
   const eraserModeCheckbox = document.querySelector('#eraser-mode');
+  const resetButton = document.querySelector('.reset-btn');
 
   gridSquareSizeSlider.addEventListener('click', updateGridSquareSize);
   gridBackgroundColorPicker.addEventListener('input', updateGridBackgroundColor);
@@ -258,6 +261,7 @@ function toggleDisableRainbowModeTool() {
   penColorPicker.addEventListener('input', updatePenColor);
   rainbowModeCheckbox.addEventListener('input', activateRainbowMode);
   eraserModeCheckbox.addEventListener('input', activateEraserMode);
+  resetButton.addEventListener('click', resetGrid)
 
   createGrid(grid.gridSquareSize);
 
