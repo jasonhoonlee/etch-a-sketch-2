@@ -205,7 +205,7 @@ function toggleDisableAllGridTools() {
 function displayDisabledMessage() {
   const disabledMessage = document.querySelector('.disabled-message');
   if (grid.eraserMode) {
-    disabledMessage.textContent = '(grid tools disabled)';
+    disabledMessage.textContent = '(grid tools disabled when \'Eraser\' mode is on)';
   } else {
     disabledMessage.textContent = '';
   }
