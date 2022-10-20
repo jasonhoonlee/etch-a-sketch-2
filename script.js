@@ -7,7 +7,8 @@ const grid = {
   gridlessMode: false,
   penColor: '#000000',
   rainbowMode: false,
-  eraserMode: false
+  eraserMode: false,
+  drawingStarted: false,
 }
 
 
@@ -63,6 +64,11 @@ function makeCellDrawable(cell) {
 }
 
 function colorCell(e) {
+  if (!grid.drawingStarted){
+    updateGridDrawingStatus();
+    disableGridSquareSizeTool();
+  }
+
   if (e.buttons === 1) {
     const cell = e.target;
 
@@ -80,6 +86,10 @@ function colorCell(e) {
     }
 
   }
+}
+
+function updateGridDrawingStatus() {
+  grid.drawingStarted = true;
 }
 
 function eraseCell(cell) {
@@ -209,6 +219,11 @@ function displayDisabledMessage() {
   } else {
     disabledMessage.textContent = '';
   }
+}
+
+function disableGridSquareSizeTool() {
+  const gridSquareSizeSlider = document.querySelector('.slider');
+  gridSquareSizeSlider.disabled = true;
 }
 
 function toggleDisableGridSquareSizeTool() {
