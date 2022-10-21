@@ -64,7 +64,7 @@ function makeCellDrawable(cell) {
 }
 
 function colorCell(e) {
-  if (!grid.drawingStarted){
+  if (!grid.drawingStarted && e.buttons === 1) {
     updateGridDrawingStatus();
     disableGridSquareSizeTool();
   }
